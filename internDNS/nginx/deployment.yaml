@@ -1,0 +1,29 @@
+apiVersion: apps/v1 ## Versão da api
+kind: Deployment ## tipo de serviço
+metadata: ## dadps referentes ao deployment como nome
+  name: nginx
+  labels:
+    app: nginx
+spec: ## especificações do deployment, principalmente o selector que vai selecionar qual pod vai acoplar
+  replicas: 1
+  selector:
+    matchLabels: ## Qual pod vai ser selecionado que possue o mesmo app
+      app: nginx
+  ## estrutura do pod
+  template:
+    metadata:
+      labels:
+        app: nginx ## Nome do pod
+    spec:
+      containers:
+      - name: nginx ## nome do container
+        image: nginx # imagem
+        env:
+        - name: TEST
+          value: "Hello from the environment"
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80 ## A porta que o container irá rodar docker run -p 8080:80 (referente a porta interna do container)
