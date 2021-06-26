@@ -1,0 +1,6 @@
+.terraform.*
+terraform.tfstate
+terraform.tfstate.backup
+service_account.json
+terraform.*
+.terraform.lock.hcl

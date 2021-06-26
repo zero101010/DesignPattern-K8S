@@ -1,0 +1,2 @@
+Foi criado um canary usando o próprio k8s, setando 2 deployments diferentes com imagens diferentes, mas mantendo as mesmas labels para que o service redirecionasse eles 
+`while true;do curl http://34.80.161.255; echo; sleep 0.3; done;`
