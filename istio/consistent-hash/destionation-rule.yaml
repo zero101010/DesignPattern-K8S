@@ -1,0 +1,15 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: nginx-dr
+spec:
+  host: nginx-service
+  # Regra de loadbalancer que será utilizada, por default usamos o ROUND_ROBIN, mas podemos trocar por como LEAST_CONN e  
+  trafficPolicy:
+    loadBalancer:
+      consistentHash:
+        httpHeaderName: "x-user"
+  subsets:
+    - name: all
+      labels:
+        app: nginx 

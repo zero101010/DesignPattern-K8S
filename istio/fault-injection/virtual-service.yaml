@@ -1,0 +1,23 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: nginx-vs
+spec:
+  hosts:
+  - nginx-service
+  http:
+    - fault:
+    ## Todas as chamadas http vai ter um delay de 10 segundos em 100% das requisições
+        # delay:
+        #   fixedDelay: 10s
+        #   percentage:
+        #     value: 100
+    ## Abortar 50% das requisições com erro 500
+        abort:
+          httpStatus: 500
+          percentage:
+            value: 50
+      route:
+      - destination:
+          host: nginx-service
+          subset: all
