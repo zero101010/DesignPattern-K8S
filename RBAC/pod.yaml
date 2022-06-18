@@ -1,0 +1,11 @@
+apiVersion: v1 
+kind: Pod 
+metadata: 
+  name: slackbot
+  labels: 
+    app: slackbot
+spec:
+  containers:
+    - name: slackbot
+      image: zero101010/go-client-k8s:v15
+      imagePullPolicy: Always

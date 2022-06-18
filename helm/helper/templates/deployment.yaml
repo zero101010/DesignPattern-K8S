@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "helper.name" . }}
+  labels:
+    {{- include "helper.labels" . | nindent 4 }}
+spec:
+  selector:
+    matchLabels:
+      {{- include "helper.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      {{- with .Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "helper.selectorLabels" . | nindent 8 }}
+    spec:
+      {{- template "helper.container.spec" .}}

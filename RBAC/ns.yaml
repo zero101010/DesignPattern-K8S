@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: slackbot-1
+  annotations:
+    email: iaraujo@cyral.com
+    namespace-monitor.cyral.com/monitor: "true"
+  labels:
+    owner: iraujo
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: slackbot-2
+  annotations:
+    email: iaraujo@cyral.com
+    namespace-monitor.cyral.com/monitor: "true"
+    namespace-monitor.cyral.com/ignore-until: "1650480585"
+  labels:
+    owner: iraujo
