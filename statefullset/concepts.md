@@ -1,0 +1,5 @@
+## Conceitos Gerais
+
+### Stateless vs Statefull
+- Stateless (sem estado): Um aplicativo sem estado é aquele que não armazena nenhuma informação específica entre diferentes execuções do aplicativo. Cada nova execução do aplicativo é totalmente independente da anterior e não requer nenhuma informação de estado anterior. Exemplos de aplicativos sem estado incluem servidores web que fornecem conteúdo estático, APIs RESTful e microservices que executam uma função específica.
+- Stateful (com estado): Um aplicativo com estado é aquele que armazena informações específicas entre diferentes execuções do aplicativo. Essas informações são geralmente armazenadas em um banco de dados ou em um sistema de arquivos persistente, e cada nova execução do aplicativo depende dessas informações armazenadas. Exemplos de aplicativos com estado incluem bancos de dados, aplicativos de comércio eletrônico e aplicativos de processamento de dados.

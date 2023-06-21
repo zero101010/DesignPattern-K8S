@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: "init"
+  namespace: default
+  labels:
+    app: "init"
+spec:
+  initContainers:
+    - name: Download
+      image: axeclbr/git
+      command:
+      - git
+      - clone
+      - https://github.com/mdn/begginer-html-site-scripted
+      - /var/lib/data
+      volumeMounts:
+      - name:  source
+        mountPath:  /var/lib/data
+  containers:
+    - name: init
+      image: nginx
+      ports:
+      - containerPort:  80
+        name:  http
+      volumeMounts:
+      - name:  source
+        mountPath:  /var/www/html
+  volumes:
+    - emptyDir: {}
+      name: source

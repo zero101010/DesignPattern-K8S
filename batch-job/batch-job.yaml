@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: random-generator
+spec:
+  completions: 10
+  parallelism: 2
+  template:
+    metadata:
+      name: random-generator
+    spec:
+      containers:
+        - name: random-generator
+          image:  k8spatterns/random-generator:1.0
+          command: ["ls"]
+      restartPolicy: OnFailure
+    
